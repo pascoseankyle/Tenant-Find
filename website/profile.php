@@ -1,3 +1,6 @@
+<?php
+    include_once "../config/database.php";
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -27,12 +30,26 @@
                 <img class="image-profile" src="https://i.pinimg.com/originals/53/82/8c/53828c9c2f80269a0e82e0b0c18a65b1.jpg">
             </div>
             <div class="text-center">
-                <h2>Sean Kyle Pasco</h2>
+                <?php 
+                    $id = $_COOKIE['id'];
+                    $sql = "SELECT * FROM `user_tb` WHERE `id` = '$id' ";
+                    $result = mysqli_query($conn, $sql); 
+                    if (mysqli_num_rows($result) > 0){
+                        while($row = mysqli_fetch_assoc($result)){
+                            echo "<h2>".$row['name']."</h2>";          
+                        
+                ?>
+                <div class="button-center"><button>edit</div>
                 <hr>
-                <p><i class="fas fa-phone"></i> 09458112250</p>
-                <p><i class="fas fa-envelope-open"></i> seankylepasco@gmail.com</p>
-                <p><i class="fas fa-location-arrow"></i> Olongapo City</p>
+                <?php
+                    echo "<p><i class='fas fa-phone'></i> ".$row['mobile']."</p>";
+                    echo "<p><i class='fas fa-envelope-open'></i> ".$row['email']."</p>";
+                    echo "<p><i class='fas fa-location-arrow'></i> ".$row['city']."</p>";
+                    }
+                }
+                ?>
             </div>
+            <button onclick="logout()" class="logout"><i class="fas fa-sign-out-alt"></i> logout</button>
         </div>
     </body>
     <script src="../scripts/index.js"></script> 

@@ -1,3 +1,6 @@
+<?php
+    if (isset($_COOKIE['id'])){
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -20,6 +23,7 @@
         </nav>
         <!-- left -->
         <div class="left">
+            <div onclick="post()" class="card-left"><i class="fas fa-plus-circle"></i> Post</div>
             <div onclick="profile()" class="card-left"><i class="fas fa-users-cog"></i> Sean Kyle Pasco</div>
             <div onclick="messages()" class="card-left"><i class="fas fa-money-check-alt"></i> Interactions</div>
         </div>
@@ -35,9 +39,13 @@
                 Sweet Dreams! ❤️😘❤️
                 </p>
                 <img class="image" src="https://static.dezeen.com/uploads/2020/02/house-in-the-landscape-niko-arcjitect-architecture-residential-russia-houses-khurtin_dezeen_2364_hero-1704x959.jpg">
-                <hr>
-                <div class="button-center"> 
-                    <button> messsage </button>  
+                <br>
+                <br>
+                <br>
+                <div class="button-item"> 
+                    <button><i class="fas fa-users-cog"></i> rent </button>  
+                    <button><i class="fas fa-eye"></i> view </button>  
+                    <button><i class="fas fa-arrow-circle-up"></i> follow </button> 
                 </div>
             </div>
         </div>
@@ -55,4 +63,10 @@
     </body>
     <script src="../scripts/index.js"></script> 
     <script src="https://kit.fontawesome.com/c4442c2032.js" crossorigin="anonymous"></script>
+<?php
+    }
+    else {
+        header("Location: http://localhost:8080/tenant-find/website/login.php");
+    }
+?>
 </html>

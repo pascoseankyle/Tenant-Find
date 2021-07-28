@@ -1,8 +1,14 @@
 function login(){
   window.location = "website/login.php";
 }
+function logout(){
+  window.location = "login.php";
+}
 function home(){
   window.location = "home.php";
+}
+function post(){
+  window.location = "post.php";
 }
 function messages(){
   window.location = "messages.php";

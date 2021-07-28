@@ -1,6 +1,7 @@
 body, html{
     font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
     margin: auto;
+    color: rgb(51, 50, 50);
 }
 /* Welcome Page */
 .center-v-h{
@@ -156,6 +157,7 @@ nav {
     border-radius: 5px;
     background-color: transparent;
     color: white;
+    transition: 0.5s;
 }
 .home-buttons:hover{
     background-color: rgb(187, 185, 185);
@@ -232,16 +234,16 @@ nav {
 }
 .image{
     width:100%; 
-    border-radius:5px;
 }
 .image-profile {
     width: 168px; 
     height: 168px;
     border-radius:50%;
     overflow: hidden;
+    box-shadow: 0 10px 13px 0 rgba(0,0,0,0.2);
 }
 .div-center{
-    width: 50%;
+    width: 30%;
     margin: auto;
     box-shadow: 0 3px 5px 0 rgba(0,0,0,0.2);
     padding: 10px;
@@ -250,7 +252,7 @@ nav {
     background-color: whitesmoke;
 }
 .card-image {
-    width: 19%;
+    width: 30%;
     margin: auto;
 }
 .text-center{
@@ -267,8 +269,70 @@ nav {
     border-radius: 5px;
     font-weight: bolder;
     letter-spacing: 2px;
+    transition: 0.5s;
 }
 .button-center button:hover{
+    background-color: #54436B;
+    color: white;
+}
+.button-item{
+    float: left;
+}
+.button-item button{
+    float: left;
+    margin: 5px;
+    width:230px;
+    border: 3px solid #54436B;
+    padding: 10px;
+    background-color: transparent;
+    border-radius: 5px;
+    font-weight: bolder;
+    letter-spacing: 2px;
+    transition: 0.5s;
+}
+.button-item button:hover{
+    background-color: #54436B;
+    color: white;
+}
+.logout{
+    width: 100%;
+    padding: 5px;
+    border: none;
+    height: 45px;
+    color: white;
+    font-weight: bolder;
+    letter-spacing: 2px;
+    background-color: #DA0037;
+    transition: 0.5s;
+    border-radius: 5px;
+}
+.logout:hover {
+    border: 3px solid #DA0037;
+    color: #DA0037;
+    background-color: transparent;
+}
+.div-post{
+    width: 40%;
+    margin: auto;
+    box-shadow: 0 3px 5px 0 rgba(0,0,0,0.2);
+    padding: 10px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+.div-post button{
+    width: 100%;
+    padding: 5px;
+    float: left;
+    margin: 5px;
+    border: 3px solid #54436B;
+    padding: 10px;
+    background-color: transparent;
+    border-radius: 5px;
+    font-weight: bolder;
+    letter-spacing: 2px;
+    transition: 0.5s;
+}
+.button-post button:hover{
     background-color: #54436B;
     color: white;
 }
