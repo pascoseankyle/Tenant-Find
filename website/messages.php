@@ -25,53 +25,45 @@
         </div>
         <!-- middle -->
         <div class="middle">
-            <div class="card-items">
-                <h3>Sean Kyle Pasco</h3>
-                <hr>
-                <p>My Champaca Family
-                Stay Safe and Healthy
-                Always Pray for our Country
-                God Bless Us! 😘❤️😘
-                Sweet Dreams! ❤️😘❤️
-            </div>
-            <div class="card-items-sent">
-                <h3>Sean Kyle Pasco</h3>
-                <hr>
-                <p>My Champaca Family
-                Stay Safe and Healthy
-                Always Pray for our Country
-                God Bless Us! 😘❤️😘
-                Sweet Dreams! ❤️😘❤️
-            </div>
-            <div class="card-items-sent">
-                <h3>Sean Kyle Pasco</h3>
-                <hr>
-                <p>My Champaca Family
-                Stay Safe and Healthy
-                Always Pray for our Country
-                God Bless Us! 😘❤️😘
-                Sweet Dreams! ❤️😘❤️
-            </div>
-            <div class="card-items-sent">
-                <h3>Sean Kyle Pasco</h3>
-                <hr>
-                <p>My Champaca Family
-                Stay Safe and Healthy
-                Always Pray for our Country
-                God Bless Us! 😘❤️😘
-                Sweet Dreams! ❤️😘❤️
-            </div>
-            <div class="card-items-sent">
-                <h3>Sean Kyle Pasco</h3>
-                <hr>
-                <p>My Champaca Family
-                Stay Safe and Healthy
-                Always Pray for our Country
-                God Bless Us! 😘❤️😘
-                Sweet Dreams! ❤️😘❤️
+            <?php
+                include_once "../config/database.php";
+                $id = $_COOKIE['id'];
+                $sql = "SELECT message_tb.*, user_tb.name, user_tb.id FROM `message_tb` LEFT JOIN `user_tb` ON
+                message_tb.sender = user_tb.id WHERE message_tb.receiver = '$id' ORDER BY message_tb.id DESC ";
+                $result = mysqli_query($conn, $sql); 
+                if (mysqli_num_rows($result) > 0){
+                while($row = mysqli_fetch_assoc($result)){
+                    $array = array();
+                    array_push($array, $row);
+                    $data = json_encode($array);
+                    echo"
+                        <div class='card-items-sent'>
+                            <h3><i class='fas fa-user-friends'></i> From: ".$row['name']."<h3>
+                            <hr>
+                            <h4>Subject: ".$row['subject']."</h4>
+                            <p>Message: ".$row['message']."</p>
+                            <button onclick='reply(".$data.",".$id.")' class='button-reply'><i class='fas fa-share-square'></i> reply</button>
+                        </div>";
+                    }
+                }
+            ?>
+        </div>
+        <div id="messageModal" class="modal">
+            <div class="msg-content">
+                <span id="spanMessage" class="close">&times;</span>
+                <h1><i class="fas fa-envelope"></i> Send Message </h1>
+                <form action="../actions/message/add.php" method="POST">
+                    <input name="subject" type="text" placeholder="Subject" class="input-signup" style="width:80%">
+                    <textarea name="message" type="text" placeholder="message" class="input-signup" style="width:80%"></textarea>
+                    <input id="sender" name="sender" type="hidden" class="input-signup" style="width:80%">
+                    <input id="receiver" name="receiver" type="hidden" class="input-signup" style="width:80%">
+                    <br>
+                    <button class="button-signup" type="submit"><i class="fas fa-share"></i> submit</button>
+                </form>
             </div>
         </div>
     </body>
     <script src="../scripts/index.js"></script> 
+    <script src="../scripts/modals/message/index.js"></script>
     <script src="https://kit.fontawesome.com/c4442c2032.js" crossorigin="anonymous"></script>
 </html>

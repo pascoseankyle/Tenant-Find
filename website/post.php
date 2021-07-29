@@ -1,6 +1,3 @@
-<?php
-    if (isset($_COOKIE['id'])){
-?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -34,10 +31,4 @@
     </body>
     <script src="../scripts/index.js"></script> 
     <script src="https://kit.fontawesome.com/c4442c2032.js" crossorigin="anonymous"></script>
-<?php
-    }
-    else {
-        header("Location: http://localhost:8080/tenant-find/website/login.php");
-    }
-?>
 </html>

@@ -91,10 +91,29 @@ body, html{
 }
 .modal-content {
     background-color: #fefefe;
-    margin: 15% auto; 
+    margin: auto; 
     padding: 20px;
+    margin-top: 100px;
     border: 1px solid #888;
     width: 25%;
+    border-radius: 7px;
+}
+.post-content {
+    background-color: #fefefe;
+    margin: auto; 
+    margin-top: 100px;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%;
+    border-radius: 7px;
+}
+.msg-content {
+    background-color: #fefefe;
+    margin: auto; 
+    margin-top: 100px;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 30%;
     border-radius: 7px;
 }
 .close {
@@ -162,15 +181,22 @@ nav {
 .home-buttons:hover{
     background-color: rgb(187, 185, 185);
 }
-.card-left {
+.card-left{
     float: left;
+    text-align: left;
+    font-size: 16px;
+    background-color: transparent;
+    border: none;
     margin-bottom:2px;
     width: 80%;
     padding: 10px 0px 10px 9px;
-    font-weight: bold;
+    font-weight: bolder;
+    transition: 0.5s;
+    letter-spacing: .5px;
 }
 .card-left:hover {
-    background-color: whitesmoke;
+    background-color:#54436B;
+    color: white;
 }
 .card-left-messages {
     float: left;
@@ -183,14 +209,14 @@ nav {
     float: left;
     width: 95%; 
     background-color: whitesmoke;
-    border-radius:5px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     padding: 10px;
     margin-bottom: 5px;
 }
 .card-items-sent{
     float: right;
     width: 95%; 
-    background-color: #ACFFAD;
+    background-color: whitesmoke;
     border-radius:5px;
     padding: 10px;
     margin-bottom: 5px;
@@ -268,7 +294,7 @@ nav {
     background-color: transparent;
     border-radius: 5px;
     font-weight: bolder;
-    letter-spacing: 2px;
+    letter-spacing: .5px;
     transition: 0.5s;
 }
 .button-center button:hover{
@@ -284,10 +310,10 @@ nav {
     width:230px;
     border: 3px solid #54436B;
     padding: 10px;
-    background-color: transparent;
+    background-color: rgb(245, 245, 245);
     border-radius: 5px;
     font-weight: bolder;
-    letter-spacing: 2px;
+    letter-spacing: .5px;
     transition: 0.5s;
 }
 .button-item button:hover{
@@ -301,7 +327,7 @@ nav {
     height: 45px;
     color: white;
     font-weight: bolder;
-    letter-spacing: 2px;
+    letter-spacing: .5px;
     background-color: #DA0037;
     transition: 0.5s;
     border-radius: 5px;
@@ -314,6 +340,7 @@ nav {
 .div-post{
     width: 40%;
     margin: auto;
+    height: 430px;
     box-shadow: 0 3px 5px 0 rgba(0,0,0,0.2);
     padding: 10px;
     border-bottom-left-radius: 5px;
@@ -329,10 +356,64 @@ nav {
     background-color: transparent;
     border-radius: 5px;
     font-weight: bolder;
-    letter-spacing: 2px;
+    letter-spacing: .5px;
     transition: 0.5s;
 }
 .button-post button:hover{
     background-color: #54436B;
     color: white;
+}
+
+.button-reply{
+    background-color: #50CB93;
+    border: none;
+    border-radius: 6px;
+    font-size: 17px;
+    line-height: 38px;
+    padding: 0 16px;
+    width: 232px;
+    color: white;
+    margin: 5px;
+    transition: 0.5s;
+    letter-spacing: .5px;
+}
+.button-reply:hover {
+    border: #50CB93;
+    background-color: transparent;
+    color: #50CB93;
+}
+.button-edit {
+    width: 50%;
+    margin: auto;
+}
+.button-edit button{
+    background-color: #50CB93;
+    font-size: 17px;
+    color: white;
+    border: none;
+    width: 200px;
+    padding: 10px;
+    border-radius: 5px;
+    letter-spacing: .5px;
+    transition: 0.5s;
+}
+.button-edit button:hover{
+    border: #50CB93;
+    background-color: transparent;
+    color: #50CB93;
+}
+.left-profile{
+    float: left;
+    margin-left: 10px;
+    width: 570px;
+    height: 550px;
+    overflow: auto;
+}
+.right-profile{
+    position: absolute;
+    right: 30px;
+    top: 130px;
+    width: 540px;
+    height: 560px;
+    overflow: auto;
 }
