@@ -19,13 +19,13 @@
             <div class="right-nav"></div>
         </nav>
         <div class="div-post">
-            <h1>Create Post</h1>
+            <h1><i class="fas fa-folder-plus"></i> Create Post</h1>
             <form action="../actions/post/add.php" method="POST" enctype="multipart/form-data">
                 <input name="title" type="text" placeholder="Title" class="input-signup">
                 <textarea name="content" type="text" placeholder="Content" class="input-signup"></textarea>
                 <input name="photo" type="file" class="input-signup">
                 <hr>
-                <button type="submit">post</button>
+                <div class="button-edit"><button type="submit"><i class="fas fa-plus-circle"></i> post</button></div>
             </form>
         </div>    
     </body>

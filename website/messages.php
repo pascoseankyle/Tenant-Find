@@ -21,7 +21,7 @@
         <!-- left -->
         <div class="left">
             <h3 class="card-left-messages"><i class="fas fa-envelope"></i> Messages</h3>
-            <div class="card-left">Sean Kyle Pasco</div>
+            <div class="card-left" onclick="profile()">Profile</div>
         </div>
         <!-- middle -->
         <div class="middle">
@@ -42,7 +42,7 @@
                             <hr>
                             <h4>Subject: ".$row['subject']."</h4>
                             <p>Message: ".$row['message']."</p>
-                            <button onclick='reply(".$data.",".$id.")' class='button-reply'><i class='fas fa-share-square'></i> reply</button>
+                            <div class='button-edit'> <button onclick='reply(".$data.",".$id.")'><i class='fas fa-share-square'></i> reply</button></div>
                         </div>";
                     }
                 }
@@ -58,7 +58,9 @@
                     <input id="sender" name="sender" type="hidden" class="input-signup" style="width:80%">
                     <input id="receiver" name="receiver" type="hidden" class="input-signup" style="width:80%">
                     <br>
-                    <button class="button-signup" type="submit"><i class="fas fa-share"></i> submit</button>
+                    <div class="button-edit">
+                        <button type="submit"><i class="fas fa-share"></i> send</button>
+                    <div>
                 </form>
             </div>
         </div>

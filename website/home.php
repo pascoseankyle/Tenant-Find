@@ -43,7 +43,7 @@
         <!-- middle -->
         <div class='middle'>
             <?php
-                $sql = "SELECT * FROM `post_tb` WHERE 1";
+                $sql = "SELECT post_tb.*, user_tb.* FROM `post_tb` INNER JOIN user_tb ON post_tb.user_id = user_tb.id WHERE 1 ORDER BY post_tb.id DESC";
                 $result = mysqli_query($conn, $sql); 
                 if (mysqli_num_rows($result) > 0){
                     while($row = mysqli_fetch_assoc($result)){
@@ -52,7 +52,7 @@
                     $data = json_encode($array);
                     echo "
                     <div class='card-items'>
-                        <h4>Sean Kyle Pasco</h4>
+                        <h4>".$row['name']."</h4>
                         <h2>".$row['title']."</h2>
                         <p>".$row['content']."</p>
                         <img class='image' src='../actions/post/uploads/".$row['photo']."'>
@@ -76,8 +76,8 @@
         </div>
         <!-- right -->
         <div class="right">
-            <div class="card-right">
-                <img class="card-right-item" src="https://media.tenor.com/images/753d41416e880fe4451a1c3a7483bf71/tenor.gif">
+            <div class="card-right" onclick="toAd()">
+                <img class="card-right-item"  onclick="toAd()" src="https://media.tenor.com/images/753d41416e880fe4451a1c3a7483bf71/tenor.gif">
             </div>
             <div class="card-following">
                 <h2><i class="fas fa-users"></i> Following</h2>
@@ -91,7 +91,6 @@
                         }
                     }
                     ?>
-                <a href="https://www.facebook.com/">add following..</a>
             </div>
         </div>
         <!-- modals -->

@@ -1,10 +1,8 @@
 <?php
     include_once "../config/database.php";
-?>
-<?php
     $email = $_POST['em'];
     $password = $_POST['pw'];
-    $sql = "SELECT * FROM `user_tb` WHERE `email` = '$email' && `password` = '$password' ";
+    $sql = "SELECT * FROM `user_tb` WHERE `email` = '$email' && `password` = '$password'";
     $result = mysqli_query($conn, $sql); 
     if (mysqli_num_rows($result) === 1){
         while($row = mysqli_fetch_assoc($result)){
@@ -18,6 +16,7 @@
         }
     }
     else{
-        header("Location: http://localhost:8080/tenant-find/website/home.php");
+        echo "no user found: wrong password or email or no account";
     }
+
 ?>

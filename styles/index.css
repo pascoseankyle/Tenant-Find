@@ -192,7 +192,6 @@ nav {
     padding: 10px 0px 10px 9px;
     font-weight: bolder;
     transition: 0.5s;
-    letter-spacing: .5px;
 }
 .card-left:hover {
     background-color:#54436B;
@@ -227,8 +226,6 @@ nav {
     width: 100%;
     margin-left: 10px;
     font-weight:900;
-    font-size: .9375rem;
-    box-shadow: 0 1px 3px 0 rgba(0,0,0,0.2);
 }
 .card-right-item{
     margin: auto;
@@ -294,7 +291,6 @@ nav {
     background-color: transparent;
     border-radius: 5px;
     font-weight: bolder;
-    letter-spacing: .5px;
     transition: 0.5s;
 }
 .button-center button:hover{
@@ -308,17 +304,17 @@ nav {
     float: left;
     margin: 5px;
     width:230px;
-    border: 3px solid #54436B;
+    border: none;
     padding: 10px;
-    background-color: rgb(245, 245, 245);
+    background-color: #54436B;
+    color: white;
     border-radius: 5px;
     font-weight: bolder;
-    letter-spacing: .5px;
     transition: 0.5s;
 }
 .button-item button:hover{
-    background-color: #54436B;
-    color: white;
+    background-color: transparent;
+    color: #54436B;
 }
 .logout{
     width: 100%;
@@ -327,14 +323,13 @@ nav {
     height: 45px;
     color: white;
     font-weight: bolder;
-    letter-spacing: .5px;
-    background-color: #DA0037;
+    background-color: #FF3D68;
     transition: 0.5s;
     border-radius: 5px;
+    border: none;
 }
 .logout:hover {
-    border: 3px solid #DA0037;
-    color: #DA0037;
+    color: #FF3D68;
     background-color: transparent;
 }
 .div-post{
@@ -356,7 +351,6 @@ nav {
     background-color: transparent;
     border-radius: 5px;
     font-weight: bolder;
-    letter-spacing: .5px;
     transition: 0.5s;
 }
 .button-post button:hover{
@@ -375,7 +369,6 @@ nav {
     color: white;
     margin: 5px;
     transition: 0.5s;
-    letter-spacing: .5px;
 }
 .button-reply:hover {
     border: #50CB93;
@@ -394,7 +387,6 @@ nav {
     width: 200px;
     padding: 10px;
     border-radius: 5px;
-    letter-spacing: .5px;
     transition: 0.5s;
 }
 .button-edit button:hover{

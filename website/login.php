@@ -14,7 +14,7 @@
                         <input name="em"type="text" placeholder="username" class="input-login" required>
                         <input name="pw" type="password" placeholder="password" class="input-login" required>
                         <hr>
-                        <button class="button-login" type="submit">submit</button>
+                        <button class="button-login" type="submit">login</button>
                         <br>
                         <button onclick="signup()" class="button-signup" type="button">sign up</button>
                     </form> 
@@ -23,12 +23,13 @@
         </div>
         <div id="myModal" class="modal">
             <div class="modal-content">
-            <form action="../actions/user/add.php" method="POST">
+            <form action="../actions/user/add.php" method="POST" enctype="multipart/form-data">
                 <span class="close">&times;</span>
                 <input name="name" type="text" placeholder="Name" class="input-signup">
                 <input name="mobile" type="number" placeholder="Mobile" class="input-signup">
                 <input name="city" type="text" placeholder="City" class="input-signup">
                 <input name="email" type="text" placeholder="Email" class="input-signup" required>
+                <input name="photo" type="file" class="input-signup">
                 <input name="password" type="password" placeholder="Password" class="input-signup" required>
                 <select name="type" class="input-signup">
                     <option value="0">Landlord</option>

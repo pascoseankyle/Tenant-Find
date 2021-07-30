@@ -36,13 +36,9 @@
                         }
                     }
                     ?>
-                <a href="https://www.facebook.com/">more..</a>
         </div>
         <!-- middle -->
         <div class="div-center">
-            <div class="card-image">
-                <img class="image-profile" src="https://i.pinimg.com/originals/53/82/8c/53828c9c2f80269a0e82e0b0c18a65b1.jpg">
-            </div>
             <div class="text-center">
                 <?php 
                     $id = $_COOKIE['id'];
@@ -50,10 +46,16 @@
                     $result = mysqli_query($conn, $sql); 
                     if (mysqli_num_rows($result) > 0){
                         while($row = mysqli_fetch_assoc($result)){
-                            echo "<h2>".$row['name']."</h2>";          
+                            $array = array();
+                            array_push($array, $row);
+                            $data = json_encode($array);
+                            echo "<div class='card-image'>
+                                <img class='image' src='../actions/user/uploads/".$row['photo']."'>
+                            </div>";
+                            echo "<h2>".$row['name']."</h2>"; 
+                            echo "<div class='button-edit'><button onclick='userModal(".$data.")'><i class='fas fa-user-edit'></i> edit</button></div>";         
                         
                 ?>
-                <div class="button-edit"><button><i class="fas fa-user-edit"></i> edit</button></div>
                 <hr>
                 <?php
                     echo "<p><i class='fas fa-phone'></i> ".$row['mobile']."</p>";
@@ -69,9 +71,9 @@
         </div>
         <!-- right -->
         <div class="right-profile">
-        <h2><i class="fas fa-laptop-house"></i> Posts </h2>
+            <h2><i class="fas fa-laptop-house"></i> Posts </h2>
             <?php
-                $sql = "SELECT * FROM `post_tb` WHERE 1";
+                $sql = "SELECT * FROM `post_tb` WHERE `user_id` = '$id' ";
                 $result = mysqli_query($conn, $sql); 
                 if (mysqli_num_rows($result) > 0){
                     while($row = mysqli_fetch_assoc($result)){
@@ -80,7 +82,6 @@
                     $data = json_encode($array);
                     echo "
                     <div class='card-items'>
-                        <h4>Sean Kyle Pasco</h4>
                         <h2>".$row['title']."</h2>
                         <p>".$row['content']."</p>
                         <img class='image' src='../actions/post/uploads/".$row['photo']."'>
@@ -88,13 +89,7 @@
                         <br>
                         <br>
                         <div class='button-item'> 
-                            <button onclick='rent(".$data.",".$id.")'><i class='fas fa-users-cog'></i> rent </button>  
-                            <button onclick='view(".$data.")'><i class='fas fa-eye'></i> view </button>  
-                            <form action='../actions/following/add.php' method='POST' style='float:left'>
-                                <input name='following' type='hidden' value='".$row['user_id']."'>
-                                <input name='follower' type='hidden' value='".$id."'>
-                                <button type='submit'><i class='as fa-arrow-circle-up'></i> follow </button> 
-                            </form>
+                            <button onclick='postModal(".$data.")'><i class='fas fa-eye'></i> view </button>  
                         </div>
                     </div> 
                     ";
@@ -102,7 +97,54 @@
                 }
             ?>
         </div>
+        <!-- modals -->
+        <div id="editProfileModal" class="modal">
+            <div class="modal-content">
+                <span id="span-profile"class="close">&times;</span>
+                <h4> Edit Profile </h4>
+                <form action="../actions/user/update.php" method="POST" enctype="multipart/form-data">
+                    <input id="id" name="id" type="hidden" placeholder="Name" class="input-signup">
+                    <input id="name" name="name" type="text" placeholder="Name" class="input-signup">
+                    <input id="mobile" name="mobile" type="number" placeholder="Mobile" class="input-signup">
+                    <input id="email" name="email" type="text" placeholder="Email" class="input-signup">
+                    <input id="password" name="password" type="text" placeholder="Password" class="input-signup">
+                    <select id="type" name="type" class="input-signup">
+                        <option value="0">Landlord</option>
+                        <option value="1">Tenant</option>
+                    </select>
+                    <input name="photo" type="file" class="input-signup">
+                    <input id="city" name="city" type="text" placeholder="City" class="input-signup">
+                    <br>
+                    <div class="button-edit"><button type="submit">save</button></div>
+                    <hr>                    
+                </form>
+                <form action="../actions/user/delete.php" method="POST">
+                    <input id="id2" name="id2" type="hidden" placeholder="Name" class="input-signup">
+                    <button class="logout" type="submit">delete</button>
+                </form>
+            </div>
+        </div>
+        <div id="editPostModal" class="modal">
+            <div class="modal-content">
+                <span id="span-post"class="close">&times;</span>
+                <h4> Edit Post </h4>
+                <form action="../actions/post/update.php" method="POST">
+                    <input id="idPost" name="idPost" type="hidden" placeholder="Name" class="input-signup">
+                    <input id="titlePost" name="titlePost" type="text" placeholder="Name" class="input-signup">
+                    <input id="contentPost" name="contentPost" type="text" placeholder="Name" class="input-signup">
+                    <br>
+                    <div class="button-edit"><button type="submit">save</button></div> 
+                    <hr>
+                </form>
+                <form action="../actions/post/delete.php" method="POST">
+                    <input id="idPost2" name="idPost2" type="hidden" placeholder="Name" class="input-signup">
+                    <button class="logout" type="submit">delete</button>
+                </form>
+            </div>
+        </div>
     </body>
     <script src="../scripts/index.js"></script> 
+    <script src="../scripts/modals/profile/user/edit.js"></script> 
+    <script src="../scripts/modals/profile/post/edit.js"></script> 
     <script src="https://kit.fontawesome.com/c4442c2032.js" crossorigin="anonymous"></script>
 </html>
