@@ -5,6 +5,8 @@
 <html>
     <head>
         <link rel="stylesheet" href="../styles/index.css">
+        <link rel="icon" href="../assets/tenant-find.png" type="image/x-icon">
+        <title>Tenant Hunt | Login</title>
     </head>
     <body>
         <div class="center-v-h">
